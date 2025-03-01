@@ -12,4 +12,4 @@ dependencies = [
 
 # yamlファイルをパッケージに含める
 [tool.setuptools.package-data]
-senju3_logger = ["*.yaml"]
+"senju3_logger" = ["*.yaml"]
