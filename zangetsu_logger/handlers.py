@@ -35,8 +35,8 @@ class EnvVarFileHandler(RotatingFileHandler):
 
     def _resolve_filename(self, filename):
         """環境変数や絶対/相対パスを考慮してファイル名を解決"""
-        # 環境変数 SENJU3_LOG_DIR が設定されていれば使用
-        log_dir = os.environ.get("SENJU3_LOG_DIR")
+        # 環境変数 zangetsu_LOG_DIR が設定されていれば使用
+        log_dir = os.environ.get("zangetsu_LOG_DIR")
 
         # 絶対パスの場合はそのまま使用
         if os.path.isabs(filename):

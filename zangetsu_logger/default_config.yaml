@@ -3,10 +3,12 @@ disable_existing_loggers: false
 
 formatters:
   simple_jst:
-    class: senju3_logger.formatters.Senju3ConsoleFormatter
-    format: '%(jst_time)s - %(name)s - %(levelname)s - %(message)s'
+    class: zangetsu_logger.formatters.zangetsuConsoleFormatter
+    format: '%(jst_time)s - %(name)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s'
   json:
-    class: senju3_logger.formatters.Senju3JsonFormatter
+    class: zangetsu_logger.formatters.zangetsuJsonFormatter
+    # JSONフォーマッターでファイル名と行番号を含めるための設定
+    # 通常は追加フィールドとして設定されます
 
 handlers:
   console:
@@ -16,25 +18,25 @@ handlers:
     stream: ext://sys.stdout
   
   file:
-    class: senju3_logger.handlers.EnvVarFileHandler
+    class: zangetsu_logger.handlers.EnvVarFileHandler
     level: DEBUG
     formatter: json
-    filename: senju3_app.log
+    filename: zangetsu_app.log
     maxBytes: 10485760  # 10MB
     backupCount: 5
     encoding: utf8
   
   error_file:
-    class: senju3_logger.handlers.EnvVarFileHandler
+    class: zangetsu_logger.handlers.EnvVarFileHandler
     level: ERROR
     formatter: json
-    filename: senju3_error.log
+    filename: zangetsu_error.log
     maxBytes: 10485760  # 10MB
     backupCount: 5
     encoding: utf8
 
 loggers:
-  senju3:
+  zangetsu:
     level: DEBUG
     handlers: [console, file, error_file]
     propagate: no

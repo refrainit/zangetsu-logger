@@ -7,8 +7,8 @@ import os
 import pytz  # 必要に応じてpytzをインストール
 
 
-class Senju3JsonFormatter(logging.Formatter):
-    """日本時間に対応したSenju3形式のJSONフォーマッタ"""
+class zangetsuJsonFormatter(logging.Formatter):
+    """日本時間に対応したzangetsu形式のJSONフォーマッタ"""
 
     def __init__(self, fmt=None, datefmt=None, style="%", validate=True):
         super().__init__(fmt, datefmt, style, validate)
@@ -28,13 +28,12 @@ class Senju3JsonFormatter(logging.Formatter):
         log_record["message"] = record.getMessage()
         log_record["hostname"] = self.hostname
 
-        # 追加情報
-        if hasattr(record, "filename"):
-            log_record["filename"] = record.filename
-        if hasattr(record, "funcName") and record.funcName:
-            log_record["function"] = record.funcName
-        if hasattr(record, "lineno"):
-            log_record["line"] = record.lineno
+        # ファイル情報を常に追加
+        log_record["filename"] = record.filename
+        log_record["pathname"] = record.pathname
+        log_record["function"] = record.funcName
+        log_record["line"] = record.lineno
+        log_record["module"] = record.module
 
         # スタックトレース情報の追加（エラー時）
         if record.exc_info:
@@ -46,7 +45,7 @@ class Senju3JsonFormatter(logging.Formatter):
 
         # 環境変数から追加情報を取得
         for env_var in ["ENVIRONMENT", "SERVICE_NAME", "VERSION"]:
-            value = os.environ.get(f"SENJU3_{env_var}")
+            value = os.environ.get(f"zangetsu_{env_var}")
             if value:
                 log_record[env_var.lower()] = value
 
@@ -68,10 +67,12 @@ class Senju3JsonFormatter(logging.Formatter):
             )
 
 
-class Senju3ConsoleFormatter(logging.Formatter):
+class zangetsuConsoleFormatter(logging.Formatter):
     """日本時間に対応したコンソール出力用フォーマッタ"""
 
     def __init__(self, fmt=None, datefmt=None, style="%", validate=True):
+        if fmt is None:
+            fmt = "%(jst_time)s - %(name)s - %(levelname)s - %(pathname)s:%(lineno)d - %(message)s"
         super().__init__(fmt, datefmt, style, validate)
         # 日本のタイムゾーンを設定
         self.jst = pytz.timezone("Asia/Tokyo")

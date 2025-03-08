@@ -1,11 +1,11 @@
-# senju3-logger
+# zangetsu-logger
 
-senju3 のロギング関連のライブラリ
+zangetsu のロギング関連のライブラリ
 
 ## このライブラリをインストールして使用する方法
 
 ```bash
-pip install git+https://github.com/leadingtechdev/senju3-logger.git
+pip install git+https://github.com/leadingtechdev/zangetsu-logger.git
 ```
 
 ## 環境変数の設定
@@ -13,13 +13,13 @@ pip install git+https://github.com/leadingtechdev/senju3-logger.git
 ロギング設定は環境変数で制御できます。`.env`ファイルや`export`コマンドで以下の環境変数を設定できます：
 
 ```bash
-SENJU3_LOG_DIR=<ログファイルの出力ディレクトリ>
+zangetsu_LOG_DIR=<ログファイルの出力ディレクトリ>
 ```
 
 ## ライブラリの更新
 
 ```bash
-pip install --upgrade git+https://github.com/leadingtechdev/senju3-logger.git
+pip install --upgrade git+https://github.com/leadingtechdev/zangetsu-logger.git
 ```
 
 ## 使い方
@@ -27,7 +27,7 @@ pip install --upgrade git+https://github.com/leadingtechdev/senju3-logger.git
 ### 基本的な使用方法
 
 ```python
-from senju3_logger import initialize
+from zangetsu_logger import initialize
 
 # 基本的な初期化
 logger = initialize()
@@ -46,7 +46,7 @@ logger = initialize(
 ### 名前付きロガーの取得
 
 ```python
-from senju3_logger import get_logger
+from zangetsu_logger import get_logger
 
 # モジュール固有のロガーを取得
 module_logger = get_logger('my_module')
@@ -60,7 +60,7 @@ module_logger.debug("デバッグメッセージ")
 | `config_path`         | `None`       | カスタム設定ファイルのパス     | `/path/to/logging_config.yaml` を指定すると、デフォルト設定の代わりにそのファイルから設定を読み込みます                                                   |
 | `log_level`           | `None`       | ロギングレベル                 | `'DEBUG'`: すべてのログを出力<br>`'INFO'`: 情報レベル以上のログを出力<br>`'WARNING'`: 警告レベル以上のログを出力<br>`'ERROR'`: エラーレベルのログのみ出力 |
 | `app_name`            | `None`       | アプリケーション名             | 指定しない場合、呼び出し元のモジュール名が使用されます。特定の名前を付けることで、ロガーを明示的に識別できます                                            |
-| `enable_file_logging` | `False`      | ファイルへのログ出力を有効化   | `True`: `senju3_app.log` と `senju3_error.log` にログを出力<br>`False`: コンソール出力のみ                                                                |
+| `enable_file_logging` | `False`      | ファイルへのログ出力を有効化   | `True`: `zangetsu_app.log` と `zangetsu_error.log` にログを出力<br>`False`: コンソール出力のみ                                                                |
 | `log_dir`             | `None`       | ログファイルの出力ディレクトリ | `/var/log/myapp` などを指定すると、指定したディレクトリにログファイルを出力                                                                               |
 
 ## 開発者向け

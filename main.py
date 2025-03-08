@@ -1,4 +1,4 @@
-from senju3_logger import initialize
+from zangetsu_logger import initialize
 
 logger = initialize()
 
