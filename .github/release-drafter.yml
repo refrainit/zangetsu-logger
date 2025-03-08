@@ -1,0 +1,32 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+categories:
+  - title: '🎉 リリース'
+    labels:
+      - 'major'
+  - title: '🚀 機能追加'
+    labels:
+      - 'feature'
+  - title: '🐛 バグ修正'
+    labels:
+      - 'bug'
+  - title: '📝 その他'
+exclude-labels:
+  - 'ignore-for-release-note'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+change-title-escapes: '\<*_&'
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  default: patch
+template: |
+  $CHANGES
+footer: |
+
+  ## 🌱 すべての変更点
+
+  https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION

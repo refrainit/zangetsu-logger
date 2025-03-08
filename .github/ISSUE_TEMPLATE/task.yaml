@@ -1,0 +1,27 @@
+name: タスク
+description: タスク用のテンプレート
+body:
+  - type: textarea
+    attributes:
+      label: タスクの概要
+      description: タスクの内容を簡潔に記入してください。
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 目的
+      description: タスクの目的を記入してください。
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 作業内容
+      description: タスクの作業内容を記入してください。
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: その他の情報
+      description: その他に関連する情報があれば記入してください。
+    validations:
+      required: false

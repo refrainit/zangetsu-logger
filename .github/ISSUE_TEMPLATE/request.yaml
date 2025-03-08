@@ -1,0 +1,33 @@
+name: 要望等
+description: 要望用のテンプレート
+body:
+  - type: textarea
+    attributes:
+      label: 要望の概要
+      description: 要望の内容を簡潔に記入してください。
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 背景
+      description: 要望の背景を記入してください。
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 目的
+      description: 要望の目的を記入してください。
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 提案
+      description: 要望の提案を記入してください。
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: その他の情報
+      description: その他に関連する情報があれば記入してください。
+    validations:
+      required: false
