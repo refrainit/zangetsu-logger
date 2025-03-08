@@ -5,7 +5,7 @@ zangetsu のロギング関連のライブラリ
 ## このライブラリをインストールして使用する方法
 
 ```bash
-pip install git+https://github.com/refrainit/zangetsu-logger.git
+pip install zangetsu-logger
 ```
 
 ## 環境変数の設定
@@ -19,7 +19,7 @@ zangetsu_LOG_DIR=<ログファイルの出力ディレクトリ>
 ## ライブラリの更新
 
 ```bash
-pip install --upgrade git+https://github.com/refrainit/zangetsu-logger.git
+pip install --upgrade zangetsu-logger
 ```
 
 ## 使い方
