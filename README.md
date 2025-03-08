@@ -5,7 +5,7 @@ zangetsu のロギング関連のライブラリ
 ## このライブラリをインストールして使用する方法
 
 ```bash
-pip install git+https://github.com/leadingtechdev/zangetsu-logger.git
+pip install git+https://github.com/refrainit/zangetsu-logger.git
 ```
 
 ## 環境変数の設定
@@ -19,7 +19,7 @@ zangetsu_LOG_DIR=<ログファイルの出力ディレクトリ>
 ## ライブラリの更新
 
 ```bash
-pip install --upgrade git+https://github.com/leadingtechdev/zangetsu-logger.git
+pip install --upgrade git+https://github.com/refrainit/zangetsu-logger.git
 ```
 
 ## 使い方
@@ -60,7 +60,7 @@ module_logger.debug("デバッグメッセージ")
 | `config_path`         | `None`       | カスタム設定ファイルのパス     | `/path/to/logging_config.yaml` を指定すると、デフォルト設定の代わりにそのファイルから設定を読み込みます                                                   |
 | `log_level`           | `None`       | ロギングレベル                 | `'DEBUG'`: すべてのログを出力<br>`'INFO'`: 情報レベル以上のログを出力<br>`'WARNING'`: 警告レベル以上のログを出力<br>`'ERROR'`: エラーレベルのログのみ出力 |
 | `app_name`            | `None`       | アプリケーション名             | 指定しない場合、呼び出し元のモジュール名が使用されます。特定の名前を付けることで、ロガーを明示的に識別できます                                            |
-| `enable_file_logging` | `False`      | ファイルへのログ出力を有効化   | `True`: `zangetsu_app.log` と `zangetsu_error.log` にログを出力<br>`False`: コンソール出力のみ                                                                |
+| `enable_file_logging` | `False`      | ファイルへのログ出力を有効化   | `True`: `zangetsu_app.log` と `zangetsu_error.log` にログを出力<br>`False`: コンソール出力のみ                                                            |
 | `log_dir`             | `None`       | ログファイルの出力ディレクトリ | `/var/log/myapp` などを指定すると、指定したディレクトリにログファイルを出力                                                                               |
 
 ## 開発者向け
